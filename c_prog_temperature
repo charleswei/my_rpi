@@ -1,0 +1,27 @@
+DHT11与树莓派链接
+
+VCC连接+3V3 DATA连接GPIO4 GND链接GND
+
+软件部分
+
+安装wiringPi
+
+sudo apt-get install git-core
+git clone git://git.drogon.net/wiringPi
+cd wiringPi
+./build
+如果由于网络原因无法git clone成功，可以从此下载wiringPi http://cahe.qiniudn.com/wiringPi_v2.3.1.7z
+
+验证是否安装成功
+
+gpio -v
+gpio readall
+下载编译C语言程序代码
+
+wget http://cahe.qiniudn.com/res/sensor.c
+gcc -o sensor sensor.c -lwiringPi
+运行程序
+
+sudo ./sensor
+24,39
+输出结果，第一个为湿度，第二个为温度
